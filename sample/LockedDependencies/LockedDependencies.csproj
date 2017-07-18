@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>netcoreapp2.0;netstandard2.0</TargetFrameworks>
+    <IsPackable>false</IsPackable>
+  </PropertyGroup>
+
+  <ItemGroup>
+     <PackageReference Include="Newtonsoft.Json" Version="10.*" />
+     <PackageReference Include="Yarn.MSBuild" Version="*" PrivateAssets="All" />
+     <ProjectReference Include="..\ClassLibrary1\ClassLibrary1.csproj" />
+  </ItemGroup>
+
+  <Import Project="packages.lock.props" Condition="Exists('./packages.lock.props')" />
+</Project>
