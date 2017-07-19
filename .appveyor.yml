@@ -1,3 +1,4 @@
+version: 0.1.0-alpha-{build}
 os: Visual Studio 2017
 environment:
   global:
@@ -5,7 +6,7 @@ environment:
 build_script:
   - dotnet restore
   - dotnet build -c Release
-  - dotnet pack -c Release src/NuGetLock/ -o artifacts/
+  - ps: & dotnet pack -c Release src/NuGetLock/ -o (Resolve-Path ./artifacts/)
 test: off
 branches:
   only:
