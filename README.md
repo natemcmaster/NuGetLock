@@ -21,7 +21,7 @@ Edit your csproj to include this, and then execute `dotnet restore`:
 
 ```xml
   <ItemGroup>
-    <DotNetCliToolReference Include="NuGetLock" Version="0.1.0" />
+    <DotNetCliToolReference Include="NuGetLock" Version="0.1.1" />
   </ItemGroup>
 ```
 

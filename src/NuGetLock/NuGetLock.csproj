@@ -10,6 +10,9 @@
     <PackageTags>NuGet;MSBuild;dotnet</PackageTags>
     <PackageId>NuGetLock</PackageId>
     <NoPackageAnalysis>true</NoPackageAnalysis>
+    <PackageReleaseNotes>
+      Fixes an issue when updating an existing nuget.lock file.
+    </PackageReleaseNotes>
 
     <VersionPrefix>0.1.1</VersionPrefix>
     <VersionSuffix Condition="'$(APPVEYOR_REPO_BRANCH)' != 'master'">alpha</VersionSuffix>
