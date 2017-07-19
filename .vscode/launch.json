@@ -1,0 +1,25 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Launch on Sample",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build",
+            "program": "${workspaceRoot}/src/NuGetLock/bin/Debug/netcoreapp2.0/dotnet-nugetlock.dll",
+            "args": [
+                "-p",
+                "${workspaceRoot}/samples/LockedDependencies/"
+            ],
+            "cwd": "${workspaceRoot}/src/NuGetLock/",
+            "stopAtEntry": false,
+            "console": "internalConsole"
+        },
+        {
+            "name": ".NET Core Attach",
+            "type": "coreclr",
+            "request": "attach",
+            "processId": "${command:pickProcess}"
+        }
+    ]
+}

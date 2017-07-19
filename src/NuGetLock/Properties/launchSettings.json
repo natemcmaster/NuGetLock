@@ -2,7 +2,7 @@
   "profiles": {
     "Sample": {
       "commandName": "Project",
-      "workingDirectory": "../../sample/LockedDependencies"
+      "workingDirectory": "../../samples/LockedDependencies"
     }
   }
 }

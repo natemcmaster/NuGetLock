@@ -4,6 +4,8 @@ using System.Linq;
 using System.Xml.Linq;
 using Microsoft.Extensions.CommandLineUtils;
 using NuGet.Common;
+using NuGet.LibraryModel;
+using NuGet.Packaging;
 using NuGet.ProjectModel;
 
 namespace NuGetLock
@@ -97,14 +99,82 @@ namespace NuGetLock
             // also naive. Multiple targets make exist if there are runtime identifiers
             foreach (var target in assetsFile.Targets.OrderBy(t => t.TargetFramework.GetShortFolderName()))
             {
+                var spec = assetsFile.PackageSpec.GetTargetFramework(target.TargetFramework);
                 var itemGroup = new XElement("ItemGroup", new XAttribute("Condition", $"'$(TargetFramework)' == '{target.TargetFramework.GetShortFolderName()}'"));
                 proj.Add(itemGroup);
 
                 foreach (var library in target.Libraries.OrderBy(l => l.Name).Where(l => !l.Type.Equals("project", StringComparison.Ordinal)))
                 {
-                    // TODO add IsImplicitlyDefined=true packages, e.g. Microsoft.NETCore.App
                     // TODO re-add PrivateAssets, ExcludeAssets, etc. where appropriate
+
                     var reference = new XElement("PackageReference", new XAttribute("Include", library.Name), new XAttribute("Version", library.Version.ToNormalizedString()));
+                    var refSpec = spec.Dependencies.FirstOrDefault(l => l.Name.Equals(library.Name, StringComparison.OrdinalIgnoreCase));
+                    if (refSpec != null)
+                    {
+                        if (refSpec.AutoReferenced)
+                        {
+                            reference.Add(new XAttribute("IsImplicitlyDefined", "true"));
+                        }
+
+                        if (refSpec.NoWarn.Any())
+                        {
+                            reference.Add(new XAttribute("NoWarn", refSpec.NoWarn.Aggregate(string.Empty, (a, b) => $"{a};{b}")));
+                        }
+
+                        if (refSpec.SuppressParent == LibraryIncludeFlags.All)
+                        {
+                            reference.Add(new XAttribute("PrivateAssets", "All"));
+                        }
+
+                        if (refSpec.IncludeType != LibraryIncludeFlags.All)
+                        {
+                            reference.Add(
+                                new XAttribute("IncludeAssets", LibraryIncludeFlagUtils.GetFlagString(refSpec.IncludeType).Replace(", ", ";")));
+                        }
+                    }
+                    else
+                    {
+                        bool IsEmptyFile(LockFileItem item)
+                        {
+                            return Path.GetFileName(item.Path).Equals("_._", StringComparison.Ordinal);
+                        }
+
+                        // There was no top-level package reference. Attempt to make this as similar to a transitive dependency as possible
+                        reference.Add(new XAttribute("Transitive", "true"));
+
+                        // IsImplicitlyDefined is Visual Studio is magic
+                        // Add PrivateAssets="All" to ensure only top-level dependencies end up in the generated nuspec
+                        reference.Add(new XAttribute("PrivateAssets", "All"));
+
+                        var excludeFlags = LibraryIncludeFlags.None;
+                        if (library.CompileTimeAssemblies.Count(IsEmptyFile) == 1)
+                        {
+                            // in some cases, the parent package may exclude compile assets from their nuspec.
+                            // We don't want to change the compile graph by lifting this to be a top-level PackageRef
+                            excludeFlags |= LibraryIncludeFlags.Compile;
+                        }
+
+                        // in some cases, the parent package may exclude assets from their nuspec.
+                        // We don't want to change the compile graph by lifting this to be a top-level PackageRef
+                        if (library.RuntimeAssemblies.Count(IsEmptyFile) == 1)
+                        {
+                            excludeFlags |= LibraryIncludeFlags.Runtime;
+                        }
+
+                        if (library.NativeLibraries.Count(IsEmptyFile) == 1)
+                        {
+                            excludeFlags |= LibraryIncludeFlags.Native;
+                        }
+
+                        if (library.Build.Count(IsEmptyFile) == 1
+                            || library.BuildMultiTargeting.Count(IsEmptyFile) == 1)
+                        {
+                            excludeFlags |= LibraryIncludeFlags.Build;
+                        }
+
+                        reference.Add(new XAttribute("ExcludeAssets", LibraryIncludeFlagUtils.GetFlagString(excludeFlags)));
+                    }
+
                     itemGroup.Add(reference);
                 }
 
@@ -114,6 +184,7 @@ namespace NuGetLock
 
             doc.Save(lockFilePath);
             Console.WriteLine($"Generated lock file: {lockFilePath}");
+            Console.WriteLine("This file should be commited to source control.");
             return true;
         }
     }

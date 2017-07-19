@@ -1,0 +1,127 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project>
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <NuGetLockFileImported>true</NuGetLockFileImported>
+    <WarningsAsErrors>$(WarningsAsErrors);NU1101;NU1102;NU1103;NU1105;NU1601;NU1602;NU1603;NU1604;NU1605;NU1607</WarningsAsErrors>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Remove="@(PackageReference)" />
+  </ItemGroup>
+  <ItemGroup Condition="'$(TargetFramework)' == 'netcoreapp2.0'">
+    <PackageReference Include="AutoMapper" Version="6.1.1" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.CSharp" Version="4.3.0" Transitive="true" PrivateAssets="All" ExcludeAssets="none" />
+    <PackageReference Include="Microsoft.NETCore.App" Version="2.0.0-preview3-25516-01" IsImplicitlyDefined="true" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.NETCore.DotNetAppHost" Version="2.0.0-preview3-25516-01" Transitive="true" PrivateAssets="All" ExcludeAssets="none" />
+    <PackageReference Include="Microsoft.NETCore.DotNetHostPolicy" Version="2.0.0-preview3-25516-01" Transitive="true" PrivateAssets="All" ExcludeAssets="none" />
+    <PackageReference Include="Microsoft.NETCore.DotNetHostResolver" Version="2.0.0-preview3-25516-01" Transitive="true" PrivateAssets="All" ExcludeAssets="none" />
+    <PackageReference Include="Microsoft.NETCore.Platforms" Version="2.0.0-preview3-25514-03" Transitive="true" PrivateAssets="All" ExcludeAssets="runtime, compile" />
+    <PackageReference Include="Microsoft.NETCore.Targets" Version="1.1.0" Transitive="true" PrivateAssets="All" ExcludeAssets="runtime, compile" />
+    <PackageReference Include="NETStandard.Library" Version="2.0.0-preview3-25507-01" Transitive="true" PrivateAssets="All" ExcludeAssets="runtime, compile" />
+    <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
+    <PackageReference Include="System.Collections" Version="4.3.0" Transitive="true" PrivateAssets="All" ExcludeAssets="none" />
+    <PackageReference Include="System.Collections.Concurrent" Version="4.3.0" Transitive="true" PrivateAssets="All" ExcludeAssets="none" />
+    <PackageReference Include="System.Collections.NonGeneric" Version="4.3.0" Transitive="true" PrivateAssets="All" ExcludeAssets="none" />
+    <PackageReference Include="System.Collections.Specialized" Version="4.3.0" Transitive="true" PrivateAssets="All" ExcludeAssets="none" />
+    <PackageReference Include="System.ComponentModel" Version="4.3.0" Transitive="true" PrivateAssets="All" ExcludeAssets="none" />
+    <PackageReference Include="System.ComponentModel.Primitives" Version="4.3.0" Transitive="true" PrivateAssets="All" ExcludeAssets="none" />
+    <PackageReference Include="System.ComponentModel.TypeConverter" Version="4.3.0" Transitive="true" PrivateAssets="All" ExcludeAssets="none" />
+    <PackageReference Include="System.Diagnostics.Debug" Version="4.3.0" Transitive="true" PrivateAssets="All" ExcludeAssets="none" />
+    <PackageReference Include="System.Diagnostics.Tracing" Version="4.3.0" Transitive="true" PrivateAssets="All" ExcludeAssets="compile" />
+    <PackageReference Include="System.Dynamic.Runtime" Version="4.3.0" Transitive="true" PrivateAssets="All" ExcludeAssets="none" />
+    <PackageReference Include="System.Globalization" Version="4.3.0" Transitive="true" PrivateAssets="All" ExcludeAssets="none" />
+    <PackageReference Include="System.Globalization.Extensions" Version="4.3.0" Transitive="true" PrivateAssets="All" ExcludeAssets="compile" />
+    <PackageReference Include="System.IO" Version="4.3.0" Transitive="true" PrivateAssets="All" ExcludeAssets="none" />
+    <PackageReference Include="System.IO.FileSystem" Version="4.3.0" Transitive="true" PrivateAssets="All" ExcludeAssets="compile" />
+    <PackageReference Include="System.IO.FileSystem.Primitives" Version="4.3.0" Transitive="true" PrivateAssets="All" ExcludeAssets="compile" />
+    <PackageReference Include="System.Linq" Version="4.3.0" Transitive="true" PrivateAssets="All" ExcludeAssets="none" />
+    <PackageReference Include="System.Linq.Expressions" Version="4.3.0" Transitive="true" PrivateAssets="All" ExcludeAssets="none" />
+    <PackageReference Include="System.Linq.Queryable" Version="4.3.0" Transitive="true" PrivateAssets="All" ExcludeAssets="none" />
+    <PackageReference Include="System.ObjectModel" Version="4.3.0" Transitive="true" PrivateAssets="All" ExcludeAssets="none" />
+    <PackageReference Include="System.Reflection" Version="4.3.0" Transitive="true" PrivateAssets="All" ExcludeAssets="none" />
+    <PackageReference Include="System.Reflection.Emit" Version="4.3.0" Transitive="true" PrivateAssets="All" ExcludeAssets="compile" />
+    <PackageReference Include="System.Reflection.Emit.ILGeneration" Version="4.3.0" Transitive="true" PrivateAssets="All" ExcludeAssets="compile" />
+    <PackageReference Include="System.Reflection.Emit.Lightweight" Version="4.3.0" Transitive="true" PrivateAssets="All" ExcludeAssets="compile" />
+    <PackageReference Include="System.Reflection.Extensions" Version="4.3.0" Transitive="true" PrivateAssets="All" ExcludeAssets="none" />
+    <PackageReference Include="System.Reflection.Primitives" Version="4.3.0" Transitive="true" PrivateAssets="All" ExcludeAssets="none" />
+    <PackageReference Include="System.Reflection.TypeExtensions" Version="4.3.0" Transitive="true" PrivateAssets="All" ExcludeAssets="compile" />
+    <PackageReference Include="System.Resources.ResourceManager" Version="4.3.0" Transitive="true" PrivateAssets="All" ExcludeAssets="none" />
+    <PackageReference Include="System.Runtime" Version="4.3.0" Transitive="true" PrivateAssets="All" ExcludeAssets="none" />
+    <PackageReference Include="System.Runtime.Extensions" Version="4.3.0" Transitive="true" PrivateAssets="All" ExcludeAssets="none" />
+    <PackageReference Include="System.Runtime.Handles" Version="4.3.0" Transitive="true" PrivateAssets="All" ExcludeAssets="compile" />
+    <PackageReference Include="System.Runtime.InteropServices" Version="4.3.0" Transitive="true" PrivateAssets="All" ExcludeAssets="compile" />
+    <PackageReference Include="System.Runtime.Serialization.Formatters" Version="4.3.0" Transitive="true" PrivateAssets="All" ExcludeAssets="none" />
+    <PackageReference Include="System.Runtime.Serialization.Primitives" Version="4.3.0" Transitive="true" PrivateAssets="All" ExcludeAssets="none" />
+    <PackageReference Include="System.Text.Encoding" Version="4.3.0" Transitive="true" PrivateAssets="All" ExcludeAssets="none" />
+    <PackageReference Include="System.Text.Encoding.Extensions" Version="4.3.0" Transitive="true" PrivateAssets="All" ExcludeAssets="compile" />
+    <PackageReference Include="System.Text.RegularExpressions" Version="4.3.0" Transitive="true" PrivateAssets="All" ExcludeAssets="none" />
+    <PackageReference Include="System.Threading" Version="4.3.0" Transitive="true" PrivateAssets="All" ExcludeAssets="none" />
+    <PackageReference Include="System.Threading.Tasks" Version="4.3.0" Transitive="true" PrivateAssets="All" ExcludeAssets="none" />
+    <PackageReference Include="System.Threading.Tasks.Extensions" Version="4.3.0" Transitive="true" PrivateAssets="All" ExcludeAssets="compile" />
+    <PackageReference Include="System.Xml.ReaderWriter" Version="4.3.0" Transitive="true" PrivateAssets="All" ExcludeAssets="none" />
+    <PackageReference Include="System.Xml.XmlDocument" Version="4.3.0" Transitive="true" PrivateAssets="All" ExcludeAssets="none" />
+    <PackageReference Include="xunit" Version="2.2.0" IncludeAssets="runtime;compile;build;native;contentfiles" />
+    <PackageReference Include="xunit.abstractions" Version="2.0.1" Transitive="true" PrivateAssets="All" ExcludeAssets="none" />
+    <PackageReference Include="xunit.assert" Version="2.2.0" Transitive="true" PrivateAssets="All" ExcludeAssets="none" />
+    <PackageReference Include="xunit.core" Version="2.2.0" Transitive="true" PrivateAssets="All" ExcludeAssets="build" />
+    <PackageReference Include="xunit.extensibility.core" Version="2.2.0" Transitive="true" PrivateAssets="All" ExcludeAssets="none" />
+    <PackageReference Include="xunit.extensibility.execution" Version="2.2.0" Transitive="true" PrivateAssets="All" ExcludeAssets="none" />
+    <PackageReference Include="Yarn.MSBuild" Version="0.27.5" IncludeAssets="runtime;compile;native;contentfiles;analyzers" />
+  </ItemGroup>
+  <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
+    <PackageReference Include="AutoMapper" Version="6.1.1" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.CSharp" Version="4.3.0" Transitive="true" PrivateAssets="All" ExcludeAssets="none" />
+    <PackageReference Include="Microsoft.NETCore.Platforms" Version="1.1.0" Transitive="true" PrivateAssets="All" ExcludeAssets="runtime, compile" />
+    <PackageReference Include="Microsoft.NETCore.Targets" Version="1.1.0" Transitive="true" PrivateAssets="All" ExcludeAssets="runtime, compile" />
+    <PackageReference Include="NETStandard.Library" Version="2.0.0-preview3-25507-01" IsImplicitlyDefined="true" PrivateAssets="All" />
+    <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
+    <PackageReference Include="System.Collections" Version="4.3.0" Transitive="true" PrivateAssets="All" ExcludeAssets="none" />
+    <PackageReference Include="System.Collections.Concurrent" Version="4.3.0" Transitive="true" PrivateAssets="All" ExcludeAssets="none" />
+    <PackageReference Include="System.Collections.NonGeneric" Version="4.3.0" Transitive="true" PrivateAssets="All" ExcludeAssets="none" />
+    <PackageReference Include="System.Collections.Specialized" Version="4.3.0" Transitive="true" PrivateAssets="All" ExcludeAssets="none" />
+    <PackageReference Include="System.ComponentModel" Version="4.3.0" Transitive="true" PrivateAssets="All" ExcludeAssets="none" />
+    <PackageReference Include="System.ComponentModel.Primitives" Version="4.3.0" Transitive="true" PrivateAssets="All" ExcludeAssets="none" />
+    <PackageReference Include="System.ComponentModel.TypeConverter" Version="4.3.0" Transitive="true" PrivateAssets="All" ExcludeAssets="none" />
+    <PackageReference Include="System.Diagnostics.Debug" Version="4.3.0" Transitive="true" PrivateAssets="All" ExcludeAssets="none" />
+    <PackageReference Include="System.Diagnostics.Tracing" Version="4.3.0" Transitive="true" PrivateAssets="All" ExcludeAssets="compile" />
+    <PackageReference Include="System.Dynamic.Runtime" Version="4.3.0" Transitive="true" PrivateAssets="All" ExcludeAssets="none" />
+    <PackageReference Include="System.Globalization" Version="4.3.0" Transitive="true" PrivateAssets="All" ExcludeAssets="none" />
+    <PackageReference Include="System.Globalization.Extensions" Version="4.3.0" Transitive="true" PrivateAssets="All" ExcludeAssets="compile" />
+    <PackageReference Include="System.IO" Version="4.3.0" Transitive="true" PrivateAssets="All" ExcludeAssets="none" />
+    <PackageReference Include="System.IO.FileSystem" Version="4.3.0" Transitive="true" PrivateAssets="All" ExcludeAssets="compile" />
+    <PackageReference Include="System.IO.FileSystem.Primitives" Version="4.3.0" Transitive="true" PrivateAssets="All" ExcludeAssets="compile" />
+    <PackageReference Include="System.Linq" Version="4.3.0" Transitive="true" PrivateAssets="All" ExcludeAssets="none" />
+    <PackageReference Include="System.Linq.Expressions" Version="4.3.0" Transitive="true" PrivateAssets="All" ExcludeAssets="none" />
+    <PackageReference Include="System.Linq.Queryable" Version="4.3.0" Transitive="true" PrivateAssets="All" ExcludeAssets="none" />
+    <PackageReference Include="System.ObjectModel" Version="4.3.0" Transitive="true" PrivateAssets="All" ExcludeAssets="none" />
+    <PackageReference Include="System.Reflection" Version="4.3.0" Transitive="true" PrivateAssets="All" ExcludeAssets="none" />
+    <PackageReference Include="System.Reflection.Emit" Version="4.3.0" Transitive="true" PrivateAssets="All" ExcludeAssets="compile" />
+    <PackageReference Include="System.Reflection.Emit.ILGeneration" Version="4.3.0" Transitive="true" PrivateAssets="All" ExcludeAssets="compile" />
+    <PackageReference Include="System.Reflection.Emit.Lightweight" Version="4.3.0" Transitive="true" PrivateAssets="All" ExcludeAssets="compile" />
+    <PackageReference Include="System.Reflection.Extensions" Version="4.3.0" Transitive="true" PrivateAssets="All" ExcludeAssets="none" />
+    <PackageReference Include="System.Reflection.Primitives" Version="4.3.0" Transitive="true" PrivateAssets="All" ExcludeAssets="none" />
+    <PackageReference Include="System.Reflection.TypeExtensions" Version="4.3.0" Transitive="true" PrivateAssets="All" ExcludeAssets="compile" />
+    <PackageReference Include="System.Resources.ResourceManager" Version="4.3.0" Transitive="true" PrivateAssets="All" ExcludeAssets="none" />
+    <PackageReference Include="System.Runtime" Version="4.3.0" Transitive="true" PrivateAssets="All" ExcludeAssets="none" />
+    <PackageReference Include="System.Runtime.Extensions" Version="4.3.0" Transitive="true" PrivateAssets="All" ExcludeAssets="none" />
+    <PackageReference Include="System.Runtime.Handles" Version="4.3.0" Transitive="true" PrivateAssets="All" ExcludeAssets="compile" />
+    <PackageReference Include="System.Runtime.InteropServices" Version="4.3.0" Transitive="true" PrivateAssets="All" ExcludeAssets="compile" />
+    <PackageReference Include="System.Runtime.Serialization.Formatters" Version="4.3.0" Transitive="true" PrivateAssets="All" ExcludeAssets="none" />
+    <PackageReference Include="System.Runtime.Serialization.Primitives" Version="4.3.0" Transitive="true" PrivateAssets="All" ExcludeAssets="none" />
+    <PackageReference Include="System.Text.Encoding" Version="4.3.0" Transitive="true" PrivateAssets="All" ExcludeAssets="none" />
+    <PackageReference Include="System.Text.Encoding.Extensions" Version="4.3.0" Transitive="true" PrivateAssets="All" ExcludeAssets="compile" />
+    <PackageReference Include="System.Text.RegularExpressions" Version="4.3.0" Transitive="true" PrivateAssets="All" ExcludeAssets="none" />
+    <PackageReference Include="System.Threading" Version="4.3.0" Transitive="true" PrivateAssets="All" ExcludeAssets="none" />
+    <PackageReference Include="System.Threading.Tasks" Version="4.3.0" Transitive="true" PrivateAssets="All" ExcludeAssets="none" />
+    <PackageReference Include="System.Threading.Tasks.Extensions" Version="4.3.0" Transitive="true" PrivateAssets="All" ExcludeAssets="compile" />
+    <PackageReference Include="System.Xml.ReaderWriter" Version="4.3.0" Transitive="true" PrivateAssets="All" ExcludeAssets="none" />
+    <PackageReference Include="System.Xml.XmlDocument" Version="4.3.0" Transitive="true" PrivateAssets="All" ExcludeAssets="none" />
+    <PackageReference Include="xunit" Version="2.2.0" IncludeAssets="runtime;compile;build;native;contentfiles" />
+    <PackageReference Include="xunit.abstractions" Version="2.0.1" Transitive="true" PrivateAssets="All" ExcludeAssets="none" />
+    <PackageReference Include="xunit.assert" Version="2.2.0" Transitive="true" PrivateAssets="All" ExcludeAssets="none" />
+    <PackageReference Include="xunit.core" Version="2.2.0" Transitive="true" PrivateAssets="All" ExcludeAssets="build" />
+    <PackageReference Include="xunit.extensibility.core" Version="2.2.0" Transitive="true" PrivateAssets="All" ExcludeAssets="none" />
+    <PackageReference Include="xunit.extensibility.execution" Version="2.2.0" Transitive="true" PrivateAssets="All" ExcludeAssets="none" />
+    <PackageReference Include="Yarn.MSBuild" Version="0.27.5" IncludeAssets="runtime;compile;native;contentfiles;analyzers" />
+  </ItemGroup>
+</Project>

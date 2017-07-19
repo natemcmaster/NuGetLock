@@ -8,9 +8,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NuGetLock", "src\NuGetLock\
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "sample", "sample", "{8A376ECF-8AB8-41C6-9B23-3BD961089A59}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LockedDependencies", "sample\LockedDependencies\LockedDependencies.csproj", "{C2357716-0B4E-4162-80A7-482B9859E9A9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LockedDependencies", "samples\LockedDependencies\LockedDependencies.csproj", "{C2357716-0B4E-4162-80A7-482B9859E9A9}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClassLibrary1", "sample\ClassLibrary1\ClassLibrary1.csproj", "{C2977BD9-8C25-4CBD-AD49-EF10A5923264}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClassLibrary1", "samples\ClassLibrary1\ClassLibrary1.csproj", "{C2977BD9-8C25-4CBD-AD49-EF10A5923264}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{9F0210F3-F244-42D3-97F1-1DEE5D52EA6F}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+		README.md = README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
