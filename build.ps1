@@ -4,8 +4,15 @@ $ErrorActionPreference = 'Stop'
 Set-StrictMode -Version Latest
 
 function __exec($_cmd) {
-    Write-Host -ForegroundColor Cyan ">>> $_cmd $args"
+    write-host -ForegroundColor Cyan ">>> $_cmd $args"
+    $ErrorActionPreference = 'Continue'
     & $_cmd @args
+    $exit_code = $LASTEXITCODE
+    $ErrorActionPreference = 'Stop'
+    if ($exit_code -ne 0) {
+        write-error "Failed with exit code $exit_code"
+        exit 1
+    }
 }
 
 __exec dotnet restore

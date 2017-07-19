@@ -1,8 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
+
   <PropertyGroup>
-    <VersionPrefix>0.1.0</VersionPrefix>
-    <VersionSuffix>alpha</VersionSuffix>
     <TargetFramework>netcoreapp1.0</TargetFramework>
     <Description>Produces a lock file for NuGet 4 to make restore repeatable.</Description>
     <OutputType>Exe</OutputType>
@@ -11,6 +10,13 @@
     <PackageTags>NuGet;MSBuild;dotnet</PackageTags>
     <PackageId>NuGetLock</PackageId>
     <NoPackageAnalysis>true</NoPackageAnalysis>
+
+    <VersionPrefix>0.1.0</VersionPrefix>
+    <VersionSuffix Condition="'$(APPVEYOR_REPO_BRANCH)' != 'master'">alpha</VersionSuffix>
+    <VersionSuffix Condition="'$(APPVEYOR_REPO_BRANCH)' == 'master'">beta</VersionSuffix>
+    <BuildNumber Condition="'$(APPVEYOR_BUILD_NUMBER)' != ''">$([System.Int32]::Parse('$(APPVEYOR_BUILD_NUMBER)').ToString('D5'))</BuildNumber>
+    <VersionSuffix Condition="'$(VersionSuffix)' != '' AND '$(BuildNumber)' != ''">$(VersionSuffix)-$(BuildNumber)</VersionSuffix>
+    <VersionSuffix Condition="'$(APPVEYOR_REPO_TAG)' == 'true'"></VersionSuffix>
   </PropertyGroup>
 
   <ItemGroup>
@@ -23,4 +29,11 @@
   </ItemGroup>
 
   <Import Project="nuget.lock" Condition="Exists('nuget.lock')" />
+
+  <Target Name="UpdateBuildDetails" BeforeTargets="Build" Condition="'$(APPVEYOR)' == 'true'">
+    <Exec Command="appveyor UpdateBuild -Version $(Version)"
+          IgnoreExitCode="true"
+          IgnoreStandardErrorWarningFormat="true" />
+  </Target>
+
 </Project>
