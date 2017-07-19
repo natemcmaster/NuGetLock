@@ -2,6 +2,7 @@
 <Project>
   <PropertyGroup>
     <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <NuGetLockFileVersion>0.1.1-alpha</NuGetLockFileVersion>
     <NuGetLockFileImported>true</NuGetLockFileImported>
     <WarningsAsErrors>$(WarningsAsErrors);NU1101;NU1102;NU1103;NU1105;NU1601;NU1602;NU1603;NU1604;NU1605;NU1607</WarningsAsErrors>
   </PropertyGroup>

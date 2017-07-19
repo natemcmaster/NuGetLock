@@ -189,7 +189,7 @@ namespace NuGetLock
             }
 
 #if NETCOREAPP1_0
-            using (var stream = File.OpenWrite(lockFilePath))
+            using (var stream = File.Open(lockFilePath, FileMode.Create))
             {
                 doc.Save(stream);
             }
@@ -198,7 +198,10 @@ namespace NuGetLock
 #else
 #error Update target frameworks
 #endif
-            Console.WriteLine($"Generated lock file: {lockFilePath}");
+            Console.ForegroundColor = ConsoleColor.Magenta;
+            Console.Write($"Generated lock file: ");
+            Console.ResetColor();
+            Console.WriteLine(lockFilePath);
             Console.WriteLine("This file should be commited to source control.");
             return true;
         }

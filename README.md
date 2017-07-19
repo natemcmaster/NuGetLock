@@ -1,6 +1,12 @@
 NuGetLock
 =========
 
+[![AppVeyor][appveyor-badge]](https://ci.appveyor.com/project/natemcmaster/nugetlock)
+[![NuGet][nuget-badge]](https://nuget.org/packages/NuGetLock)
+
+[appveyor-badge]: https://img.shields.io/appveyor/ci/natemcmaster/nugetlock.svg?style=flat-square&label=appveyor
+[nuget-badge]: https://img.shields.io/nuget/v/NuGetLock.svg?style=flat-square
+
 A tool for producing a lockfile that makes NuGet restore more deterministic.
 
 The lockfile produced integrates automatically with NuGet, Visual Studio, VS Code, etc.

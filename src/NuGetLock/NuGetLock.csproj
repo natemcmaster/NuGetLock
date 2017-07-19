@@ -3,7 +3,7 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp1.0</TargetFramework>
-    <Description>Produces a lock file for NuGet 4 to make restore repeatable.</Description>
+    <Description>Produces a NuGet lock file that makes restore repeatable.</Description>
     <OutputType>Exe</OutputType>
     <PackageType>DotnetCliTool</PackageType>
     <AssemblyName>dotnet-nugetlock</AssemblyName>
@@ -11,7 +11,7 @@
     <PackageId>NuGetLock</PackageId>
     <NoPackageAnalysis>true</NoPackageAnalysis>
 
-    <VersionPrefix>0.1.0</VersionPrefix>
+    <VersionPrefix>0.1.1</VersionPrefix>
     <VersionSuffix Condition="'$(APPVEYOR_REPO_BRANCH)' != 'master'">alpha</VersionSuffix>
     <VersionSuffix Condition="'$(APPVEYOR_REPO_BRANCH)' == 'master'">beta</VersionSuffix>
     <BuildNumber Condition="'$(APPVEYOR_BUILD_NUMBER)' != ''">$([System.Int32]::Parse('$(APPVEYOR_BUILD_NUMBER)').ToString('D5'))</BuildNumber>
