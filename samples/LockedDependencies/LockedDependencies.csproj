@@ -10,8 +10,9 @@
      <PackageReference Include="AutoMapper" Version="*" PrivateAssets="All" />
      <PackageReference Include="Yarn.MSbuild" Version="*" ExcludeAssets="Build" />
      <PackageReference Include="xunit" Version="*" ExcludeAssets="Analyzers" />
+
      <ProjectReference Include="..\ClassLibrary1\ClassLibrary1.csproj" />
   </ItemGroup>
 
-  <Import Project="packages.lock.props" Condition="Exists('./packages.lock.props')" />
+  <Import Project="packages.lock.props" Condition="Exists('packages.lock.props')" />
 </Project>

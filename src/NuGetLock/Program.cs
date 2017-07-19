@@ -12,12 +12,16 @@ namespace NuGetLock
 {
     public class Program
     {
+        private const int OK = 0;
+        private const int Error = 1;
+
         public static int Main(string[] args)
         {
             var app = new CommandLineApplication()
             {
-                Name = "nuget-lock",
-                Description = "Produces a lockfile for NuGet for repeatable restores"
+                Name = "dotnet nugetlock",
+                FullName = "NuGet Lockfile Generator",
+                Description = "Produces a lockfile for NuGet for repeatable restores",
             };
 
             app.HelpOption("-h|--help");
@@ -44,8 +48,8 @@ namespace NuGetLock
                 var assetsFile = Path.Combine(projectDir, "obj", "project.assets.json");
 
                 return GenerateLockFile(projectDir, assetsFile)
-                    ? 0
-                    : 1;
+                    ? OK
+                    : Error;
             });
 
             return app.Execute(args);
@@ -139,23 +143,22 @@ namespace NuGetLock
                             return Path.GetFileName(item.Path).Equals("_._", StringComparison.Ordinal);
                         }
 
-                        // There was no top-level package reference. Attempt to make this as similar to a transitive dependency as possible
+                        // Attempt to make this as similar to a transitive dependency as possible
+
+                        // This info is just for us. No one uses it (yet).
                         reference.Add(new XAttribute("Transitive", "true"));
 
-                        // IsImplicitlyDefined is Visual Studio is magic
                         // Add PrivateAssets="All" to ensure only top-level dependencies end up in the generated nuspec
                         reference.Add(new XAttribute("PrivateAssets", "All"));
 
+                        // in some cases, the parent package may exclude assets from their nuspec.
+                        // We don't want to change the compile graph by lifting this to be a top-level PackageRef
                         var excludeFlags = LibraryIncludeFlags.None;
                         if (library.CompileTimeAssemblies.Count(IsEmptyFile) == 1)
                         {
-                            // in some cases, the parent package may exclude compile assets from their nuspec.
-                            // We don't want to change the compile graph by lifting this to be a top-level PackageRef
                             excludeFlags |= LibraryIncludeFlags.Compile;
                         }
 
-                        // in some cases, the parent package may exclude assets from their nuspec.
-                        // We don't want to change the compile graph by lifting this to be a top-level PackageRef
                         if (library.RuntimeAssemblies.Count(IsEmptyFile) == 1)
                         {
                             excludeFlags |= LibraryIncludeFlags.Runtime;
@@ -179,8 +182,6 @@ namespace NuGetLock
                 }
 
             }
-
-            // TODO lock sources
 
             doc.Save(lockFilePath);
             Console.WriteLine($"Generated lock file: {lockFilePath}");

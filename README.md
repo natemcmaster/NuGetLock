@@ -15,6 +15,7 @@ Edit your csproj to include this, and then execute `dotnet restore`:
 
 ## Usage
 
+### Lock
 
 1. Restore your project normally.
 2. Add this to **bottom** your csproj file.
@@ -23,7 +24,7 @@ Edit your csproj to include this, and then execute `dotnet restore`:
         <!-- ...  -->
 
         <!-- Make sure this is imported after all PackageReferences in your project  -->
-        <Import Project="packages.lock.props" Condition="Exists('./packages.lock.props')" />
+        <Import Project="packages.lock.props" Condition="Exists('packages.lock.props')" />
     </Project>
     ```
 3. Generate the lock file
@@ -34,3 +35,8 @@ Edit your csproj to include this, and then execute `dotnet restore`:
     ```
     git add packages.lock.props
     ```
+
+
+### Unlock
+
+To reset the lock, delete `packages.lock.props` and `obj/project.assets.json`.
