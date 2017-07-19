@@ -1,13 +1,16 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp2.0</TargetFramework>
-    <Description>Produces a lock-file for NuGet 4 to make restore repeatable.</Description>
-    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <VersionPrefix>0.1.0</VersionPrefix>
+    <VersionSuffix>alpha</VersionSuffix>
+    <TargetFramework>netcoreapp1.0</TargetFramework>
+    <Description>Produces a lock file for NuGet 4 to make restore repeatable.</Description>
     <OutputType>exe</OutputType>
     <PackageType>DotnetCliTool</PackageType>
     <AssemblyName>dotnet-nugetlock</AssemblyName>
     <PackageTags>NuGet;MSBuild;dotnet</PackageTags>
+    <PackageId>NuGetLock</PackageId>
+    <NoPackageAnalysis>true</NoPackageAnalysis>
   </PropertyGroup>
 
   <ItemGroup>
@@ -15,4 +18,9 @@
     <PackageReference Include="NuGet.ProjectModel" Version="4.3.0-*" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Content Include="prefercliruntime" PackagePath="\" />
+  </ItemGroup>
+
+  <Import Project="nuget.lock" Condition="Exists('nuget.lock')" />
 </Project>

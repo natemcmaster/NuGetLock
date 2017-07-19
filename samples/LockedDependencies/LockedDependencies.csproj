@@ -14,5 +14,5 @@
      <ProjectReference Include="..\ClassLibrary1\ClassLibrary1.csproj" />
   </ItemGroup>
 
-  <Import Project="packages.lock.props" Condition="Exists('packages.lock.props')" />
+  <Import Project="nuget.lock" Condition="Exists('nuget.lock')" />
 </Project>

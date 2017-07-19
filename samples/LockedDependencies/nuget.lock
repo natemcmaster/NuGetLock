@@ -11,13 +11,14 @@
   <ItemGroup Condition="'$(TargetFramework)' == 'netcoreapp2.0'">
     <PackageReference Include="AutoMapper" Version="6.1.1" PrivateAssets="All" />
     <PackageReference Include="Microsoft.CSharp" Version="4.3.0" Transitive="true" PrivateAssets="All" ExcludeAssets="none" />
-    <PackageReference Include="Microsoft.NETCore.App" Version="2.0.0-preview3-25516-01" IsImplicitlyDefined="true" PrivateAssets="All" />
-    <PackageReference Include="Microsoft.NETCore.DotNetAppHost" Version="2.0.0-preview3-25516-01" Transitive="true" PrivateAssets="All" ExcludeAssets="none" />
-    <PackageReference Include="Microsoft.NETCore.DotNetHostPolicy" Version="2.0.0-preview3-25516-01" Transitive="true" PrivateAssets="All" ExcludeAssets="none" />
-    <PackageReference Include="Microsoft.NETCore.DotNetHostResolver" Version="2.0.0-preview3-25516-01" Transitive="true" PrivateAssets="All" ExcludeAssets="none" />
-    <PackageReference Include="Microsoft.NETCore.Platforms" Version="2.0.0-preview3-25514-03" Transitive="true" PrivateAssets="All" ExcludeAssets="runtime, compile" />
+    <PackageReference Include="Microsoft.NETCore.App" Version="2.0.0-preview2-25407-01" IsImplicitlyDefined="true" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.NETCore.DotNetAppHost" Version="2.0.0-preview2-25407-01" Transitive="true" PrivateAssets="All" ExcludeAssets="none" />
+    <PackageReference Include="Microsoft.NETCore.DotNetHostPolicy" Version="2.0.0-preview2-25407-01" Transitive="true" PrivateAssets="All" ExcludeAssets="none" />
+    <PackageReference Include="Microsoft.NETCore.DotNetHostResolver" Version="2.0.0-preview2-25407-01" Transitive="true" PrivateAssets="All" ExcludeAssets="none" />
+    <PackageReference Include="Microsoft.NETCore.Platforms" Version="2.0.0-preview2-25405-01" Transitive="true" PrivateAssets="All" ExcludeAssets="runtime, compile" />
     <PackageReference Include="Microsoft.NETCore.Targets" Version="1.1.0" Transitive="true" PrivateAssets="All" ExcludeAssets="runtime, compile" />
-    <PackageReference Include="NETStandard.Library" Version="2.0.0-preview3-25507-01" Transitive="true" PrivateAssets="All" ExcludeAssets="runtime, compile" />
+    <PackageReference Include="Microsoft.Packaging.Tools" Version="1.0.0-preview2-25401-01" Transitive="true" PrivateAssets="All" ExcludeAssets="none" />
+    <PackageReference Include="NETStandard.Library" Version="2.0.0-preview2-25401-01" Transitive="true" PrivateAssets="All" ExcludeAssets="runtime, compile" />
     <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
     <PackageReference Include="System.Collections" Version="4.3.0" Transitive="true" PrivateAssets="All" ExcludeAssets="none" />
     <PackageReference Include="System.Collections.Concurrent" Version="4.3.0" Transitive="true" PrivateAssets="All" ExcludeAssets="none" />
@@ -73,7 +74,8 @@
     <PackageReference Include="Microsoft.CSharp" Version="4.3.0" Transitive="true" PrivateAssets="All" ExcludeAssets="none" />
     <PackageReference Include="Microsoft.NETCore.Platforms" Version="1.1.0" Transitive="true" PrivateAssets="All" ExcludeAssets="runtime, compile" />
     <PackageReference Include="Microsoft.NETCore.Targets" Version="1.1.0" Transitive="true" PrivateAssets="All" ExcludeAssets="runtime, compile" />
-    <PackageReference Include="NETStandard.Library" Version="2.0.0-preview3-25507-01" IsImplicitlyDefined="true" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.Packaging.Tools" Version="1.0.0-preview2-25401-01" Transitive="true" PrivateAssets="All" ExcludeAssets="none" />
+    <PackageReference Include="NETStandard.Library" Version="2.0.0-preview2-25401-01" IsImplicitlyDefined="true" PrivateAssets="All" />
     <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
     <PackageReference Include="System.Collections" Version="4.3.0" Transitive="true" PrivateAssets="All" ExcludeAssets="none" />
     <PackageReference Include="System.Collections.Concurrent" Version="4.3.0" Transitive="true" PrivateAssets="All" ExcludeAssets="none" />

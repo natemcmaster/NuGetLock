@@ -3,7 +3,13 @@ NuGetLock
 
 A tool for producing a lockfile that makes NuGet restore more deterministic.
 
-## Install
+The lockfile produced integrates automatically with NuGet, Visual Studio, VS Code, etc.
+It makes restores more deterministic by turning wildcards into exact version numbers,
+and by flattening the package graph.
+
+## Usage
+
+### Install
 
 Edit your csproj to include this, and then execute `dotnet restore`:
 
@@ -13,7 +19,7 @@ Edit your csproj to include this, and then execute `dotnet restore`:
   </ItemGroup>
 ```
 
-## Usage
+Sorry, you can't install from the Visual Studio GUI yet because of https://github.com/NuGet/Home/issues/4190.
 
 ### Lock
 
@@ -24,7 +30,7 @@ Edit your csproj to include this, and then execute `dotnet restore`:
         <!-- ...  -->
 
         <!-- Make sure this is imported after all PackageReferences in your project  -->
-        <Import Project="packages.lock.props" Condition="Exists('packages.lock.props')" />
+        <Import Project="nuget.lock" Condition="Exists('nuget.lock')" />
     </Project>
     ```
 3. Generate the lock file
@@ -33,10 +39,10 @@ Edit your csproj to include this, and then execute `dotnet restore`:
     ```
 4. Commit your lock file
     ```
-    git add packages.lock.props
+    git add nuget.lock
     ```
 
 
 ### Unlock
 
-To reset the lock, delete `packages.lock.props` and `obj/project.assets.json`.
+To reset the lock, delete `nuget.lock`.

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Xml.Linq;
 using Microsoft.Extensions.CommandLineUtils;
 using NuGet.Common;
@@ -10,8 +11,10 @@ using NuGet.ProjectModel;
 
 namespace NuGetLock
 {
-    public class Program
+    internal class Program
     {
+        private const string LockFileName = "nuget.lock";
+
         private const int OK = 0;
         private const int Error = 1;
 
@@ -24,6 +27,7 @@ namespace NuGetLock
                 Description = "Produces a lockfile for NuGet for repeatable restores",
             };
 
+            app.VersionOption("--version", GetVersion());
             app.HelpOption("-h|--help");
             // TODO support invoking on a solution or multiple projects
             var project = app.Option("-p|--project <PATH>", "The path to the MSBuild project to lock", CommandOptionType.SingleValue);
@@ -82,7 +86,7 @@ namespace NuGetLock
                 return false;
             }
 
-            var lockFilePath = Path.Combine(dir, "packages.lock.props");
+            var lockFilePath = Path.Combine(dir, LockFileName);
             var assetsFile = LockFileUtilities.GetLockFile(assetsFilePath, NullLogger.Instance);
 
             var proj = new XElement("Project");
@@ -183,10 +187,27 @@ namespace NuGetLock
 
             }
 
+#if NETCOREAPP1_0
+            using (var stream = File.OpenWrite(lockFilePath))
+            {
+                doc.Save(stream);
+            }
+#elif NETCOREAPP2_0
             doc.Save(lockFilePath);
+#else
+#error Update target frameworks
+#endif
             Console.WriteLine($"Generated lock file: {lockFilePath}");
             Console.WriteLine("This file should be commited to source control.");
             return true;
+        }
+
+        private static string GetVersion()
+        {
+            return typeof(Program).GetTypeInfo()
+                .Assembly
+                .GetCustomAttribute<AssemblyInformationalVersionAttribute>()
+                .InformationalVersion;
         }
     }
 }
