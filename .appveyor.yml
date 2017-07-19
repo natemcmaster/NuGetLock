@@ -6,7 +6,7 @@ environment:
 build_script:
   - dotnet restore
   - dotnet build -c Release
-  - ps: & dotnet pack -c Release src/NuGetLock/ -o (Resolve-Path ./artifacts/)
+  - ps: dotnet pack -c Release src/NuGetLock/ -o (Resolve-Path ./artifacts/)
 test: off
 branches:
   only:
