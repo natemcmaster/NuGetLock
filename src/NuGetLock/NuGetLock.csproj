@@ -5,7 +5,7 @@
     <VersionSuffix>alpha</VersionSuffix>
     <TargetFramework>netcoreapp1.0</TargetFramework>
     <Description>Produces a lock file for NuGet 4 to make restore repeatable.</Description>
-    <OutputType>exe</OutputType>
+    <OutputType>Exe</OutputType>
     <PackageType>DotnetCliTool</PackageType>
     <AssemblyName>dotnet-nugetlock</AssemblyName>
     <PackageTags>NuGet;MSBuild;dotnet</PackageTags>
@@ -19,7 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="prefercliruntime" PackagePath="\" />
+    <Content Include="prefercliruntime" PackagePath="\prefercliruntime" />
   </ItemGroup>
 
   <Import Project="nuget.lock" Condition="Exists('nuget.lock')" />

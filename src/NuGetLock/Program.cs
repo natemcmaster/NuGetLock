@@ -95,6 +95,7 @@ namespace NuGetLock
             // details
             var props = new XElement("PropertyGroup");
             props.Add(new XElement("MSBuildAllProjects", "$(MSBuildAllProjects);$(MSBuildThisFileFullPath)"));
+            props.Add(new XElement("NuGetLockFileVersion", GetVersion()));
             props.Add(new XElement("NuGetLockFileImported", "true"));
             // force NuGet to error out if there are issues
             props.Add(new XElement("WarningsAsErrors", "$(WarningsAsErrors)" + FatalErrors.Aggregate(string.Empty, (sum, piece) => $"{sum};{piece}")));

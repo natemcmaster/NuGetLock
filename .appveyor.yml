@@ -4,9 +4,7 @@ environment:
   global:
     DOTNET_SKIP_FIRST_TIME_EXPERIENCE: true
 build_script:
-  - dotnet restore
-  - dotnet build -c Release
-  - ps: dotnet pack -c Release src/NuGetLock/ -o (Resolve-Path ./artifacts/)
+  -ps: ./build.ps1
 test: off
 branches:
   only:
