@@ -12,6 +12,8 @@
      <PackageReference Include="xunit" Version="*" ExcludeAssets="Analyzers" />
 
      <ProjectReference Include="..\ClassLibrary1\ClassLibrary1.csproj" />
+
+     <DotNetCliToolReference Include="NuGetLock" Version="0.1.1" />
   </ItemGroup>
 
   <Import Project="nuget.lock" Condition="Exists('nuget.lock')" />
